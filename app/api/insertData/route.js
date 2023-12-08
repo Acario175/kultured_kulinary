@@ -3,23 +3,42 @@ import { promises as fs } from 'fs';
 import prisma from '@/lib/prisma';
 import { NextResponse } from 'next/server';
 
-// export default async function handler(req, res) {
 export async function GET(request) {
+  // ...
+  return NextResponse.json({ message: 'Hello World' });
+}
+
+// Handles POST requests to /api
+export async function POST(request) {
+  // ...
+  // console.log('in Post', body);
+
   try {
     const { data } = request.body; // Assuming the JSON data will be sent as 'data' field in the request body
+    const body = await request.json();
+    // console.log(request.body);
+    console.log(body);
 
-    if (!data || !Array.isArray(data)) {
-      return res.status(400).json({ error: 'Invalid data format' });
+    if (!body || !Array.isArray(body)) {
+      // return res.status(400).json({ error: 'Invalid data format' });
+      return NextResponse.json(
+        {
+          // error: 'Error inserting data',
+          error: 'Invalid data format',
+        },
+        { status: 400 }
+      );
     }
 
     const insertedData = [];
 
-    for (const item of data) {
+    for (const item of body) {
+      // console.log(item);
       const existingItem = await prisma.ingredient.findUnique({
         where: {
-          name: item.name,
-          quantity: item.quantity,
-          unit: item.unit,
+          name: item.strIngredient,
+          // description: item.strDescription,
+          // unit: item.unit,
           // Add other fields as per your schema for uniqueness check
         },
       });
@@ -27,9 +46,8 @@ export async function GET(request) {
       if (!existingItem) {
         const newItem = await prisma.ingredient.create({
           data: {
-            name: item.name,
-            quantity: item.quantity,
-            unit: item.unit,
+            name: item.strIngredient,
+            description: item.strDescription,
             // Add other fields as per your schema
           },
         });
@@ -37,40 +55,36 @@ export async function GET(request) {
       }
     }
 
-    // res
-    //   .status(200)
-    //   .json({ message: 'Data inserted successfully', insertedData });
-
-    return NextResponse.json(
-      {
-        message: 'Data inserted successfully',
-        insertedData,
-      },
-      { status: 200 }
-    );
+    // res.status(200).json({ message: 'Data inserted successfully', insertedData });
+    return NextResponse.json(insertedData);
   } catch (error) {
-    // res
-    //   .status(500)
-    //   .json({ error: 'Error inserting data', message: error.message });
-    return NextResponse.json(
-      {
-        error: 'Error inserting data',
-        message: error.message,
-      },
-      { status: 500 }
-    );
+    // res.status(500).json({ error: 'Error inserting data', message: error.message });
+    return NextResponse.json({ message: error.message });
   } finally {
     await prisma.$disconnect(); // Disconnect Prisma client
   }
 
-  // return Response.json({
-  //   soldContents: soldContents,
-  // });
+  // return NextResponse.json({ message: 'Hello World' });
 }
 
-// return NextResponse.json(
-//   {
-//     message: 'Data stored and old data deleted',
-//   },
-//   { status: 200 }
-// );
+// "
+// Invalid `prisma.ingredient.findUnique()` invocation:
+
+// {
+//   where: {
+//     name: "Chicken",
+// ?   id?: Int,
+// ?   AND?: IngredientWhereInput | IngredientWhereInput[],
+// ?   OR?: IngredientWhereInput[],
+// ?   NOT?: IngredientWhereInput | IngredientWhereInput[],
+// ?   description?: StringFilter | String,
+// ?   Recipes?: StringFilter | String
+//   }
+// }
+
+// Argument `where` of type IngredientWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?."
+
+// "
+// Invalid `prisma.ingredient.create()` invocation:
+
+// The provided value for the column is too long for the column's type. Column: for"

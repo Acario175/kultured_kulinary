@@ -1,95 +1,89 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
+// import Image from 'next/image';
+// import styles from './page.module.css'
+import { useEffect, useState, useRef } from 'react';
+// import RandomQ from '@/components/RandomQ';
+// import WeatherInfo from '@/components/WeatherInfo';
+// import Breathe from '@/components/Breathe';
+// import CountdownTimer from '@/components/CountTimer';
+
+import { Box, chakra, shouldForwardProp, Button, Text } from '@chakra-ui/react';
+
+// import Countdown, { CountdownApi } from 'react-countdown';
+
+// const ChakraBox = chakra(motion.div, {
+//   /**
+//    * Allow motion props and non-Chakra props to be forwarded.
+//    */
+//   shouldForwardProp: (prop) =>
+//     isValidMotionProp(prop) || shouldForwardProp(prop),
+// });
+
+async function sendDataToApi() {
+  try {
+    const response = await fetch(
+      'https://www.themealdb.com/api/json/v1/1/list.php?i=list',
+      {
+        // method: 'POST',
+        // headers: {
+        //   'Content-Type': 'application/json',
+        // },
+        // body: JSON.stringify({ data: jsonData }),
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      // console.log('Data inserted:', data['meals'].slice(0, 20));
+
+      const tempData = data['meals'].slice(0, 20);
+
+      try {
+        console.log('hi', tempData);
+
+        const response = await fetch('/api/insertData', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(tempData),
+          // body: tempData,
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Data inserted:', data);
+        } else {
+          console.error('Failed to insert data');
+        }
+      } catch (error) {
+        console.log('error');
+        console.error('Error inserting data:', error);
+      }
+    } else {
+      console.error('Failed to insert data');
+    }
+  } catch (error) {
+    console.error('Error inserting data:', error);
+  }
+
+  // console.log('Data inserted:', data);
+}
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    <Box
+      bg='black'
+      minH={'100vh'}
+      display='flex'
+      flexWrap={'wrap'}
+      flexDirection='column'
+      alignContent={'center'}
+      justifyContent={'center'}
+      // textAlign={'center'}
+      gap={50}
+    >
+      <Button onClick={sendDataToApi}>Insert Data</Button>
+    </Box>
+  );
 }

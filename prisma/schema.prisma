@@ -52,14 +52,14 @@ model Recipe {
 
 // Ingredient model
 model Ingredient {
-  id          Int    @id @default(autoincrement())
-  name        String
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
   // quantity Float
-  description String
+  description String? @db.Text
   // owner    User     @relation("UserToIngredient", fields: [ownerId], references: [id])
   // ownerId  Int
   // recipes  Recipe[]
-  Recipes     String
+  Recipes     String?
   // pets     String[]
   // recipeId Int?
 
