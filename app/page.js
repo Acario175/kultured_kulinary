@@ -19,6 +19,8 @@ import { Box, chakra, shouldForwardProp, Button, Text } from '@chakra-ui/react';
 //     isValidMotionProp(prop) || shouldForwardProp(prop),
 // });
 
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
 async function sendDataToApi() {
   try {
     const response = await fetch(
