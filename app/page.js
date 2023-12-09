@@ -1,13 +1,23 @@
 'use client';
 // import Image from 'next/image';
 // import styles from './page.module.css'
+import useSWR from 'swr';
 import { useEffect, useState, useRef } from 'react';
 // import RandomQ from '@/components/RandomQ';
 // import WeatherInfo from '@/components/WeatherInfo';
 // import Breathe from '@/components/Breathe';
 // import CountdownTimer from '@/components/CountTimer';
 
-import { Box, chakra, shouldForwardProp, Button, Text } from '@chakra-ui/react';
+import {
+  Box,
+  chakra,
+  shouldForwardProp,
+  Button,
+  Text,
+  Textarea,
+} from '@chakra-ui/react';
+import DropdownMenu from '@/components/DropdownMenu';
+import DropdownMenuText from '@/components/DropdownMenuText';
 
 // import Countdown, { CountdownApi } from 'react-countdown';
 
@@ -73,6 +83,11 @@ async function sendDataToApi() {
 }
 
 export default function Home() {
+  // const { data, error } = useSWR('/api/readData', fetcher, {
+  //   revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
+  // });
+
+  // console.log(data);
   return (
     <Box
       bg='black'
@@ -86,6 +101,15 @@ export default function Home() {
       gap={50}
     >
       <Button onClick={sendDataToApi}>Insert Data</Button>
+      {/* <Textarea
+        color={'pink'}
+        placeholder='Editable Text'
+        value={'textBoxValue'}
+        // onChange={(e) => setTextBoxValue(e.target.value)}
+        size='lg'
+      /> */}
+      <DropdownMenu />
+      <DropdownMenuText />
     </Box>
   );
 }
