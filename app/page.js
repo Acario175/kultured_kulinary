@@ -3,10 +3,6 @@
 // import styles from './page.module.css'
 import useSWR from 'swr';
 import { useEffect, useState, useRef } from 'react';
-// import RandomQ from '@/components/RandomQ';
-// import WeatherInfo from '@/components/WeatherInfo';
-// import Breathe from '@/components/Breathe';
-// import CountdownTimer from '@/components/CountTimer';
 
 import {
   Box,
@@ -16,32 +12,15 @@ import {
   Text,
   Textarea,
 } from '@chakra-ui/react';
-import DropdownMenu from '@/components/DropdownMenu';
+// import DropdownMenu from '@/components/DropdownMenu';
 import DropdownMenuText from '@/components/DropdownMenuText';
-
-// import Countdown, { CountdownApi } from 'react-countdown';
-
-// const ChakraBox = chakra(motion.div, {
-//   /**
-//    * Allow motion props and non-Chakra props to be forwarded.
-//    */
-//   shouldForwardProp: (prop) =>
-//     isValidMotionProp(prop) || shouldForwardProp(prop),
-// });
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 async function sendDataToApi() {
   try {
     const response = await fetch(
-      'https://www.themealdb.com/api/json/v1/1/list.php?i=list',
-      {
-        // method: 'POST',
-        // headers: {
-        //   'Content-Type': 'application/json',
-        // },
-        // body: JSON.stringify({ data: jsonData }),
-      }
+      'https://www.themealdb.com/api/json/v1/1/list.php?i=list'
     );
 
     if (response.ok) {
@@ -59,7 +38,6 @@ async function sendDataToApi() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(tempData),
-          // body: tempData,
         });
 
         if (response.ok) {
@@ -83,14 +61,9 @@ async function sendDataToApi() {
 }
 
 export default function Home() {
-  // const { data, error } = useSWR('/api/readData', fetcher, {
-  //   revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
-  // });
-
-  // console.log(data);
   return (
     <Box
-      bg='black'
+      bg='#fec7d7'
       minH={'100vh'}
       display='flex'
       flexWrap={'wrap'}
@@ -101,15 +74,10 @@ export default function Home() {
       gap={50}
     >
       <Button onClick={sendDataToApi}>Insert Data</Button>
-      {/* <Textarea
-        color={'pink'}
-        placeholder='Editable Text'
-        value={'textBoxValue'}
-        // onChange={(e) => setTextBoxValue(e.target.value)}
-        size='lg'
-      /> */}
-      <DropdownMenu />
-      <DropdownMenuText />
+      <Button></Button>
+      <Button variant='primary'>Primary Button</Button>
+      {/* <DropdownMenu /> */}
+      {/* <DropdownMenuText /> */}
     </Box>
   );
 }
