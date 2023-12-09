@@ -11,6 +11,8 @@ import {
   Button,
   Text,
   Textarea,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react';
 // import DropdownMenu from '@/components/DropdownMenu';
 import DropdownMenuText from '@/components/DropdownMenuText';
@@ -73,9 +75,26 @@ export default function Home() {
       // textAlign={'center'}
       gap={50}
     >
-      <Button onClick={sendDataToApi}>Insert Data</Button>
-      <Button></Button>
-      <Button variant='primary'>Primary Button</Button>
+      <Button isDisabled onClick={sendDataToApi}>
+        Insert Data
+      </Button>
+      {/* <Button></Button> */}
+      <Box w={'80vw'}>
+        <Grid templateColumns='repeat(2, 1fr)' gap={6}>
+          {/* <GridItem w='100%' h='10' bg='blue.500' />
+          <GridItem w='100%' h='10' bg='blue.500' />
+          <GridItem w='100%' h='10' bg='blue.500' />
+          <GridItem w='100%' h='10' bg='blue.500' /> */}
+          <Button variant='primary'>Add Ing</Button>
+          <Button variant='primary'>Create Recipe</Button>
+          <Button variant='primary'>View All Recipes</Button>
+          <Button variant='primary'>View All Ings</Button>
+        </Grid>
+      </Box>
+      {/* <Button variant='primary'>Add Ing</Button>
+      <Button variant='primary'>Create Recipe</Button>
+      <Button variant='primary'>View All Recipes</Button>
+      <Button variant='primary'>View All Ings</Button> */}
       {/* <DropdownMenu /> */}
       {/* <DropdownMenuText /> */}
     </Box>
