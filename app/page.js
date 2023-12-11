@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 // import DropdownMenu from '@/components/DropdownMenu';
 import DropdownMenuText from '@/components/DropdownMenuText';
+import SearchableDropdown from '@/components/searchableMenu';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -97,6 +98,7 @@ export default function Home() {
       <Button variant='primary'>View All Ings</Button> */}
       {/* <DropdownMenu /> */}
       {/* <DropdownMenuText /> */}
+      <SearchableDropdown />
     </Box>
   );
 }
