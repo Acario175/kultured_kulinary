@@ -35,7 +35,7 @@ export async function GET(request) {
       value: item.name,
     }));
 
-    console.log(newArray);
+    // console.log(newArray);
     return NextResponse.json(
       {
         data: newArray,

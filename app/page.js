@@ -99,7 +99,7 @@ export default function Home() {
       <Button variant='primary'>View All Ings</Button> */}
       {/* <DropdownMenu /> */}
       {/* <DropdownMenuText /> */}
-      <SearchableDropdown />
+      {/* <SearchableDropdown /> */}
       <RecipeParent />
     </Box>
   );
