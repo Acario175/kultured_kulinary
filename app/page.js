@@ -17,6 +17,7 @@ import {
 // import DropdownMenu from '@/components/DropdownMenu';
 import DropdownMenuText from '@/components/DropdownMenuText';
 import SearchableDropdown from '@/components/searchableMenu';
+import RecipeParent from '@/components/RecipeParent';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -99,6 +100,7 @@ export default function Home() {
       {/* <DropdownMenu /> */}
       {/* <DropdownMenuText /> */}
       <SearchableDropdown />
+      <RecipeParent />
     </Box>
   );
 }

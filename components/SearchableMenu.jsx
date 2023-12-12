@@ -40,10 +40,7 @@ function SearchableMenu() {
   return (
     <Select
       suppressHydrationWarning={true}
-      //   id='fakeadsd'
-      //   aria-labelledby='aria-label'
       inputId='aria-example-input'
-      name='aria-live-color'
       instanceId={'sdfgxcnh'}
       options={filterOptions(inputValue)}
       value={selectedOption}
