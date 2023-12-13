@@ -2,6 +2,7 @@
 
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import Navbar from '@/components/Navbar';
 
 const customTheme = extendTheme({
   components: {
@@ -30,6 +31,7 @@ const customTheme = extendTheme({
 export function Providers({ children }) {
   return (
     <CacheProvider>
+      <Navbar />
       <ChakraProvider theme={customTheme}>{children}</ChakraProvider>
     </CacheProvider>
   );
