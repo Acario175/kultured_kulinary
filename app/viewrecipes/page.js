@@ -14,7 +14,7 @@ function RecipeCard(props) {
         borderRadius: '0.25rem',
         display: 'flex',
         flexDirection: 'column',
-        overflow: 'hidden',
+        // overflow: 'hidden',
         paddingLeft: '30px',
         background:
           'repeating-linear-gradient(#0000 0 calc(1.2rem - 1px),#66afe1 0 1.2rem) right bottom /100% 100%,linear-gradient(red 0 0) 30px 0/2px 100% #fff',
@@ -22,6 +22,8 @@ function RecipeCard(props) {
         lineHeight: '1.2rem',
         WebkitMask:
           'radial-gradient(circle .8rem at 2px 50%,#0000 98%,#000)0 0/100% 2.4rem',
+        boxShadow:
+          'rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px',
       }}
       h={'30vh'}
       w={['30vh', '30vh']}
