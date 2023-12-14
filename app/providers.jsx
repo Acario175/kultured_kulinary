@@ -31,8 +31,11 @@ const customTheme = extendTheme({
 export function Providers({ children }) {
   return (
     <CacheProvider>
-      <Navbar />
-      <ChakraProvider theme={customTheme}>{children}</ChakraProvider>
+      <ChakraProvider theme={customTheme}>
+        <Navbar />
+
+        {children}
+      </ChakraProvider>
     </CacheProvider>
   );
 }
