@@ -81,13 +81,22 @@ export default function Home() {
         Insert Data
       </Button>
       {/* <Button></Button> */}
-      <Box w={'80vw'}>
-        <Grid templateColumns='repeat(2, 1fr)' gap={6}>
-          <Button variant='primary'>Add Ing</Button>
-          <Button variant='primary'>Create Recipe</Button>
-          <Button variant='primary'>View All Recipes</Button>
-          <Button variant='primary'>View All Ings</Button>
-        </Grid>
+      <Box
+        w={['100vw', '30vw']}
+        display={'flex'}
+        // flexDirection={'column'}
+        flexWrap={'wrap'}
+        gap={5}
+        // bg={'red'}
+        alignContent={'center'}
+        justifyContent={'center'}
+      >
+        {/* <Grid templateColumns='repeat(2, 1fr)' gap={6} bg={'red'}> */}
+        <Button variant='primary'>Add Ing</Button>
+        <Button variant='primary'>Create Recipe</Button>
+        <Button variant='primary'>View All Recipes</Button>
+        <Button variant='primary'>View All Ings</Button>
+        {/* </Grid> */}
       </Box>
       {/* <RecipeParent /> */}
     </Box>
