@@ -78,7 +78,7 @@ function RecipeCard(props) {
   );
 }
 
-export default function viewrecipes() {
+export default function Viewrecipes() {
   const { data, error } = useSWR('/api/recipes', fetcher, {
     revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
     initialData: 'No Data',
