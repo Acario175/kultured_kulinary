@@ -1,6 +1,16 @@
 'use client';
 // import Head from 'next/head';
-import { Heading, Box, Button, Text, Flex, Link } from '@chakra-ui/react';
+import {
+  Heading,
+  Box,
+  Button,
+  Text,
+  Flex,
+  Link,
+  Spinner,
+  center,
+  Center,
+} from '@chakra-ui/react';
 import useSWR from 'swr';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -115,7 +125,16 @@ export default function Viewrecipes() {
           alignItems={'center'}
           // bg={'red'}
         >
-          {data ? tempHolder : 'No data'}
+          {data ? (
+            tempHolder
+          ) : (
+            <Spinner
+              center
+              emptyColor='gray.200'
+              color='purpel.500'
+              size='xl'
+            />
+          )}
         </Box>
         {/* <ExampleComponent /> */}
       </Box>

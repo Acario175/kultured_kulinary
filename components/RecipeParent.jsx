@@ -51,9 +51,15 @@ function IngrdsDropdown(props) {
       const tempText = props.recipeText.split(
         /(\nRecipe Below:\n|Ingredients Below:\n)/
       );
-      //   console.log(tempText);
+      console.log(tempText);
       props.setTextData(
-        tempText[0] + option.value + ': ' + '\n' + tempText[1] + tempText[2]
+        tempText[1] +
+          tempText[2] +
+          option.value +
+          ': ' +
+          '\n' +
+          tempText[3] +
+          tempText[4]
       );
       //   props.setFormData({
       //     ...props.formData,
