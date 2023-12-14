@@ -37,9 +37,9 @@ const Navbar = () => {
     <Text
       // fontSize='md'
       fontWeight={'bold'}
-      key={'CreateRecipe'}
+      key={'createrecipe'}
     >
-      <Link href='/CreateRecipe' style={{ textDecoration: 'none' }}>
+      <Link href='/createrecipe' style={{ textDecoration: 'none' }}>
         Create Rx
       </Link>
     </Text>,

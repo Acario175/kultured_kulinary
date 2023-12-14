@@ -67,7 +67,7 @@ async function sendDataToApi() {
 export default function Home() {
   return (
     <Box
-      bg='#fec7d7'
+      // bg='#fec7d7'
       minH={'100vh'}
       display='flex'
       flexWrap={'wrap'}
