@@ -101,8 +101,10 @@ export default function Home() {
             Create Recipe
           </Link>
         </Button>
-        <Button variant='primary' isDisabled>
-          View All Recipes
+        <Button variant='primary'>
+          <Link href='/viewrecipes' style={{ textDecoration: 'none' }}>
+            View All Recipes
+          </Link>
         </Button>
         <Button variant='primary' isDisabled>
           View All Ings
