@@ -126,21 +126,21 @@ function RecipeParent() {
       description: formData.description,
       directions: textBoxValue,
     };
-    console.log(tempJson);
+    // console.log(tempJson);
 
-    // try {
-    //   const response = await fetch('/api/submitRecipe', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
-    //   // Handle response accordingly
-    // } catch (error) {
-    //   // Handle error
-    //   console.error('Error:', error);
-    // }
+    try {
+      const response = await fetch('/api/submitRecipe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(tempJson),
+      });
+      // Handle response accordingly
+    } catch (error) {
+      // Handle error
+      console.error('Error:', error);
+    }
   };
 
   const handleChange = (e) => {

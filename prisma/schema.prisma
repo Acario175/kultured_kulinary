@@ -38,7 +38,7 @@ enum UserRole {
 // Recipe model
 model Recipe {
   id          Int      @id @default(autoincrement())
-  title       String
+  title       String   @unique
   description String
   ingredients String?
   directions  String
