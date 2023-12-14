@@ -53,24 +53,24 @@ const Navbar = () => {
         View All Rx
       </Link>
     </Text>,
-    <Text
-      //  fontSize='md'
-      fontWeight={'bold'}
-      key={'createingred'}
-    >
-      <Link href='/' style={{ textDecoration: 'none' }}>
-        Add Ingred.
-      </Link>
-    </Text>,
-    <Text
-      //  fontSize='md'
-      fontWeight={'bold'}
-      key={'viewingreds'}
-    >
-      <Link href='/viewingreds' style={{ textDecoration: 'none' }}>
-        View Ingred.
-      </Link>
-    </Text>,
+    // <Text
+    //   //  fontSize='md'
+    //   fontWeight={'bold'}
+    //   key={'createingred'}
+    // >
+    //   <Link href='/' style={{ textDecoration: 'none' }}>
+    //     Add Ingred.
+    //   </Link>
+    // </Text>,
+    // <Text
+    //   //  fontSize='md'
+    //   fontWeight={'bold'}
+    //   key={'viewingreds'}
+    // >
+    //   <Link href='/viewingreds' style={{ textDecoration: 'none' }}>
+    //     View Ingred.
+    //   </Link>
+    // </Text>,
 
     // <Text fontSize='md' fontWeight={'bold'} key={'Sold'}>
     //   <Link href='/sold' style={{ textDecoration: 'none' }}>

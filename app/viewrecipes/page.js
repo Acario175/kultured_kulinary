@@ -6,7 +6,7 @@ import useSWR from 'swr';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function RecipeCard(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <Box
       sx={{
@@ -24,7 +24,7 @@ function RecipeCard(props) {
           'radial-gradient(circle .8rem at 2px 50%,#0000 98%,#000)0 0/100% 2.4rem',
       }}
       h={'30vh'}
-      w={'30vh'}
+      w={['30vh', '30vh']}
       position='relative'
       // _hover={{ transform: 'translate(-30px, -30px)' }}
     >
@@ -77,7 +77,7 @@ function RecipeCard(props) {
 }
 
 export default function viewrecipes() {
-  const { data, error } = useSWR('/api/recipe', fetcher, {
+  const { data, error } = useSWR('/api/recipes', fetcher, {
     revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
     initialData: 'No Data',
   });
@@ -85,7 +85,7 @@ export default function viewrecipes() {
   let tempHolder;
 
   if (data) {
-    console.log(data.data);
+    // console.log(data.data);
     tempHolder = data['data'].map((item, index) => {
       return <RecipeCard key={item.title + index} data={item} />;
     });
@@ -103,7 +103,16 @@ export default function viewrecipes() {
         <Heading size='4xl' align='center' m={2}>
           Welcome to All Recipes
         </Heading>
-        <Box display={'flex'} flex={'wrap'} gap={5} m={50} bg={''}>
+        <Box
+          display={'flex'}
+          flex={'wrap'}
+          flexDirection={['column', 'row']}
+          gap={5}
+          m={50}
+          align='center'
+          alignItems={'center'}
+          // bg={'red'}
+        >
           {data ? tempHolder : 'No data'}
         </Box>
         {/* <ExampleComponent /> */}
