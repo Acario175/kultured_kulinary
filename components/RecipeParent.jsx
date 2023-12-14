@@ -109,14 +109,14 @@ function IngrdsDropdown(props) {
 // Parent Component
 function RecipeParent() {
   const [textBoxValue, setTextBoxValue] = useState(
-    'Ingridents Below:\n\nRecipe Below:\n'
+    'Ingredients Below:\n\nRecipe Below:\n'
   );
 
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     // ingredient: '',
-    // instructions: 'Ingridents Below:\n\nRecipe Below:\n',
+    // instructions: 'Ingredients Below:\n\nRecipe Below:\n',
   });
 
   const handleSubmit = async (e) => {

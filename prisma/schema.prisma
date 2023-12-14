@@ -39,9 +39,9 @@ enum UserRole {
 model Recipe {
   id          Int      @id @default(autoincrement())
   title       String   @unique
-  description String
-  ingredients String?
-  directions  String
+  description String   @db.Text
+  ingredients String?  @db.Text
+  directions  String   @db.Text
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   author      String?

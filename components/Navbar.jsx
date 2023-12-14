@@ -49,7 +49,7 @@ const Navbar = () => {
       fontWeight={'bold'}
       key={'viewrx'}
     >
-      <Link href='/viewrx' style={{ textDecoration: 'none' }}>
+      <Link href='/viewrecipes' style={{ textDecoration: 'none' }}>
         View All Rx
       </Link>
     </Text>,
@@ -58,7 +58,7 @@ const Navbar = () => {
       fontWeight={'bold'}
       key={'createingred'}
     >
-      <Link href='/createingred' style={{ textDecoration: 'none' }}>
+      <Link href='/' style={{ textDecoration: 'none' }}>
         Add Ingred.
       </Link>
     </Text>,
