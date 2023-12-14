@@ -13,6 +13,7 @@ import {
   Textarea,
   Grid,
   GridItem,
+  Link,
 } from '@chakra-ui/react';
 // import DropdownMenu from '@/components/DropdownMenu';
 import DropdownMenuText from '@/components/DropdownMenuText';
@@ -92,10 +93,20 @@ export default function Home() {
         justifyContent={'center'}
       >
         {/* <Grid templateColumns='repeat(2, 1fr)' gap={6} bg={'red'}> */}
-        <Button variant='primary'>Add Ing</Button>
-        <Button variant='primary'>Create Recipe</Button>
-        <Button variant='primary'>View All Recipes</Button>
-        <Button variant='primary'>View All Ings</Button>
+        <Button variant='primary' isDisabled>
+          Add Ing
+        </Button>
+        <Button variant='primary'>
+          <Link href='/createrecipe' style={{ textDecoration: 'none' }}>
+            Create Recipe
+          </Link>
+        </Button>
+        <Button variant='primary' isDisabled>
+          View All Recipes
+        </Button>
+        <Button variant='primary' isDisabled>
+          View All Ings
+        </Button>
         {/* </Grid> */}
       </Box>
       {/* <RecipeParent /> */}

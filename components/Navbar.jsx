@@ -47,16 +47,16 @@ const Navbar = () => {
     <Text
       //  fontSize='md'
       fontWeight={'bold'}
-      key={'listings'}
+      key={'viewrx'}
     >
-      <Link href='/listings' style={{ textDecoration: 'none' }}>
+      <Link href='/viewrx' style={{ textDecoration: 'none' }}>
         View All Rx
       </Link>
     </Text>,
     <Text
       //  fontSize='md'
       fontWeight={'bold'}
-      key={'listings'}
+      key={'createingred'}
     >
       <Link href='/createingred' style={{ textDecoration: 'none' }}>
         Add Ingred.
@@ -65,7 +65,7 @@ const Navbar = () => {
     <Text
       //  fontSize='md'
       fontWeight={'bold'}
-      key={'listings'}
+      key={'viewingreds'}
     >
       <Link href='/viewingreds' style={{ textDecoration: 'none' }}>
         View Ingred.
@@ -91,10 +91,6 @@ const Navbar = () => {
 
   return (
     <Box
-      // bg={useColorModeValue('gray.300', 'blackAlpha.900')}
-      // bg={navBg}
-      // bg={{ base: 'red', sm: 'red', md: 'red', lg: 'red' }}
-      // bg={['red', 'blue']}
       // px={4}
       // position={'sticky'}
       pos={'fixed'}
@@ -103,7 +99,7 @@ const Navbar = () => {
       zIndex={300}
       // opacity={0.8}
       w='100vw'
-      // color={'red'}
+      bg={'#fec7d7'}
       // m={5}
       // minH={'8vh'}
     >
