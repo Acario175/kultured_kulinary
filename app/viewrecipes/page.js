@@ -1,6 +1,6 @@
 'use client';
 // import Head from 'next/head';
-import { Heading, Box, Button, Text } from '@chakra-ui/react';
+import { Heading, Box, Button, Text, Flex, Link } from '@chakra-ui/react';
 import useSWR from 'swr';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -25,10 +25,11 @@ function RecipeCard(props) {
       }}
       h={'30vh'}
       w={'30vh'}
+      position='relative'
       // _hover={{ transform: 'translate(-30px, -30px)' }}
     >
       <Text
-        fontSize={'40px'}
+        fontSize={'30px'}
         // lineHeight={'2.4rem'}
         // bg={'white'}
         fontWeight={'bold'}
@@ -44,17 +45,33 @@ function RecipeCard(props) {
         w={'245px'}
         noOfLines={6}
         mt={'5px'}
-        right={'500px'}
+        // right={'500px'}
       >
         {props.data.description}
       </Text>
-      <Button
-        left={['35px', '45px']}
-        top={['40px', '50px']}
+      {/* <Button
+        pos={'absolute'}
+        // left={['35px', '340px']}
+        // bottom={['40px', '8px']}
+        // bottom={'1px'}
         variant={'primary'}
+        bottom='1'
+        right='0'
       >
         Explore Kulinary
+      </Button> */}
+      <Button pos={'absolute'} variant={'primary'} bottom='1' right='0'>
+        <Link
+          href={`/viewrecipes/${props.data.title}`}
+          // href={`/${props.data.title}`}
+          style={{ textDecoration: 'none' }}
+        >
+          Explore Kulinary
+        </Link>
       </Button>
+      {/* <Flex position='absolute' bottom='4' right='4'>
+        <Button colorScheme='blue'>Fixed Button</Button>
+      </Flex> */}
     </Box>
   );
 }
@@ -86,9 +103,10 @@ export default function viewrecipes() {
         <Heading size='4xl' align='center' m={2}>
           Welcome to All Recipes
         </Heading>
-        <Box display={'flex'} flex={'wrap'} gap={5} m={50}>
+        <Box display={'flex'} flex={'wrap'} gap={5} m={50} bg={''}>
           {data ? tempHolder : 'No data'}
         </Box>
+        {/* <ExampleComponent /> */}
       </Box>
     </Box>
   );

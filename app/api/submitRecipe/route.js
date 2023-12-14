@@ -29,35 +29,13 @@ export async function POST(request) {
       );
     }
 
-    // const insertedData = [];
-
-    // for (const item of body) {
-    //   // console.log(item);
-    //   const existingItem = await prisma.ingredient.findUnique({
-    //     where: {
-    //       name: item.strIngredient,
-    //       // description: item.strDescription,
-    //       // unit: item.unit,
-    //       // Add other fields as per your schema for uniqueness check
-    //     },
-    //   });
     const existingRecipe = await prisma.recipe.findUnique({
       where: {
         title,
       },
     });
 
-    // console.log(existingRecipe);
     if (!existingRecipe) {
-      console.log('hi', existingRecipe);
-      // const newItem = await prisma.Recipe.create({
-      //   data: {
-      //     name: item.strIngredient,
-      //     description: item.strDescription,
-      //     // Add other fields as per your schema
-      //   },
-      // });
-      // insertedData.push(newItem);
       const newRecipe = await prisma.recipe.create({
         data: {
           title,
@@ -69,6 +47,7 @@ export async function POST(request) {
       await prisma.$disconnect();
       return NextResponse.json(newRecipe);
     } else {
+      await prisma.$disconnect();
       return NextResponse.json({ message: 'Object exist' });
     }
     // }

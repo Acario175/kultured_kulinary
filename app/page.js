@@ -1,8 +1,8 @@
 'use client';
 // import Image from 'next/image';
 // import styles from './page.module.css'
-import useSWR from 'swr';
-import { useEffect, useState, useRef } from 'react';
+// import useSWR from 'swr';
+// import { useEffect, useState, useRef } from 'react';
 
 import {
   Box,
@@ -10,15 +10,12 @@ import {
   shouldForwardProp,
   Button,
   Text,
-  Textarea,
-  Grid,
-  GridItem,
   Link,
 } from '@chakra-ui/react';
 // import DropdownMenu from '@/components/DropdownMenu';
-import DropdownMenuText from '@/components/DropdownMenuText';
-import SearchableDropdown from '@/components/searchableMenu';
-import RecipeParent from '@/components/RecipeParent';
+// import DropdownMenuText from '@/components/DropdownMenuText';
+// import SearchableDropdown from '@/components/searchableMenu';
+// import RecipeParent from '@/components/RecipeParent';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
