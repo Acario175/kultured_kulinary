@@ -1,8 +1,4 @@
 'use client';
-// import Image from 'next/image';
-// import styles from './page.module.css'
-// import useSWR from 'swr';
-// import { useEffect, useState, useRef } from 'react';
 
 import {
   Box,
@@ -10,14 +6,11 @@ import {
   shouldForwardProp,
   Button,
   Text,
+  Heading,
   Link,
 } from '@chakra-ui/react';
-// import DropdownMenu from '@/components/DropdownMenu';
-// import DropdownMenuText from '@/components/DropdownMenuText';
-// import SearchableDropdown from '@/components/searchableMenu';
-// import RecipeParent from '@/components/RecipeParent';
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+// const fetcher = (url) => fetch(url).then((res) => res.json());
 
 async function sendDataToApi() {
   try {
@@ -27,12 +20,11 @@ async function sendDataToApi() {
 
     if (response.ok) {
       const data = await response.json();
-      // console.log('Data inserted:', data['meals'].slice(0, 20));
 
-      const tempData = data['meals'].slice(0, 20);
+      const tempData = data['meals'];
 
       try {
-        console.log('hi', tempData);
+        // console.log('hi', tempData);
 
         const response = await fetch('/api/insertData', {
           method: 'POST',
@@ -58,8 +50,6 @@ async function sendDataToApi() {
   } catch (error) {
     console.error('Error inserting data:', error);
   }
-
-  // console.log('Data inserted:', data);
 }
 
 export default function Home() {
@@ -75,10 +65,10 @@ export default function Home() {
       // textAlign={'center'}
       gap={50}
     >
-      <Button isDisabled onClick={sendDataToApi}>
+      <Heading variant={'TestTitle'}>I'm a Heading</Heading>
+      <Button onClick={sendDataToApi} isDisabled>
         Insert Data
       </Button>
-      {/* <Button></Button> */}
       <Box
         w={['100vw', '30vw']}
         display={'flex'}
@@ -89,7 +79,6 @@ export default function Home() {
         alignContent={'center'}
         justifyContent={'center'}
       >
-        {/* <Grid templateColumns='repeat(2, 1fr)' gap={6} bg={'red'}> */}
         <Button variant='primary' isDisabled>
           Add Ing
         </Button>
@@ -106,9 +95,7 @@ export default function Home() {
         <Button variant='primary' isDisabled>
           View All Ings
         </Button>
-        {/* </Grid> */}
       </Box>
-      {/* <RecipeParent /> */}
     </Box>
   );
 }

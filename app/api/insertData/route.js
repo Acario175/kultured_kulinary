@@ -11,13 +11,11 @@ export async function GET(request) {
 // Handles POST requests to /api
 export async function POST(request) {
   // ...
-  // console.log('in Post', body);
-
   try {
-    const { data } = request.body; // Assuming the JSON data will be sent as 'data' field in the request body
+    // const { data } = request.body; // Assuming the JSON data will be sent as 'data' field in the request body
     const body = await request.json();
     // console.log(request.body);
-    console.log(body);
+    // console.log(body);
 
     if (!body || !Array.isArray(body)) {
       // return res.status(400).json({ error: 'Invalid data format' });
@@ -33,12 +31,9 @@ export async function POST(request) {
     const insertedData = [];
 
     for (const item of body) {
-      // console.log(item);
       const existingItem = await prisma.ingredient.findUnique({
         where: {
           name: item.strIngredient,
-          // description: item.strDescription,
-          // unit: item.unit,
           // Add other fields as per your schema for uniqueness check
         },
       });
@@ -66,25 +61,3 @@ export async function POST(request) {
 
   // return NextResponse.json({ message: 'Hello World' });
 }
-
-// "
-// Invalid `prisma.ingredient.findUnique()` invocation:
-
-// {
-//   where: {
-//     name: "Chicken",
-// ?   id?: Int,
-// ?   AND?: IngredientWhereInput | IngredientWhereInput[],
-// ?   OR?: IngredientWhereInput[],
-// ?   NOT?: IngredientWhereInput | IngredientWhereInput[],
-// ?   description?: StringFilter | String,
-// ?   Recipes?: StringFilter | String
-//   }
-// }
-
-// Argument `where` of type IngredientWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?."
-
-// "
-// Invalid `prisma.ingredient.create()` invocation:
-
-// The provided value for the column is too long for the column's type. Column: for"

@@ -3,10 +3,10 @@ import Select from 'react-select';
 
 import {
   Textarea,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
+  //   Menu,
+  //   MenuButton,
+  //   MenuList,
+  //   MenuItem,
   Button,
   Box,
   FormControl,
@@ -61,23 +61,10 @@ function IngrdsDropdown(props) {
           tempText[3] +
           tempText[4]
       );
-      //   props.setFormData({
-      //     ...props.formData,
-      //     [instructions]:
-      //       tempText[0] + option.value + ': ' + '\n' + tempText[1] + tempText[2],
-      //   });
     }
   };
 
   let tempBox = (
-    // <Menu color={''}>
-    //   <MenuButton as={Button} mb={4} w={'40vw'}>
-    //     Select an Option
-    //   </MenuButton>
-    //   <MenuList>
-    //     <MenuItem key={'TempData'}>{'NO Data Yet'}</MenuItem>
-    //   </MenuList>
-    // </Menu>
     <Select
       suppressHydrationWarning={true}
       inputId='aria-example-input'
@@ -160,17 +147,6 @@ function RecipeParent() {
 
   return (
     <Box display={'flex'} flexDir={'column'} gap={5}>
-      {/* <h2>Parent Component</h2>
-      <IngrdsDropdown
-        //   setDataFromSiblingB={setDataFromSiblingB}
-        setTextData={setTextBoxValue}
-        recipeText={textBoxValue}
-      />
-      <TextComp
-        // dataFromSiblingB={dataFromSiblingB}
-        recipeText={textBoxValue}
-        setTextData={setTextBoxValue}
-      /> */}
       <form onSubmit={handleSubmit}>
         <FormControl marginY={2}>
           <FormLabel display='inline-block'>Title</FormLabel>
@@ -196,17 +172,8 @@ function RecipeParent() {
         </FormControl>
         <FormControl>
           <FormLabel display='inline-block'>Ingredients:</FormLabel>
-          {/* <Select
-            name='ingredient'
-            value={formData.ingredient}
-            onChange={handleIngredientChange}
-          >
-            <option value='Ingredient 1'>Ingredient 1</option>
-            <option value='Ingredient 2'>Ingredient 2</option>
-            // Add more options as needed 
-          </Select> */}
+
           <IngrdsDropdown
-            //   setDataFromSiblingB={setDataFromSiblingB}
             setTextData={setTextBoxValue}
             recipeText={textBoxValue}
             setFormData={setFormData}
@@ -214,13 +181,8 @@ function RecipeParent() {
         </FormControl>
         <FormControl>
           <FormLabel>Instructions</FormLabel>
-          {/* <Textarea
-            name='instructions'
-            value={formData.instructions}
-            onChange={handleChange}
-          /> */}
+
           <TextComp
-            // dataFromSiblingB={dataFromSiblingB}
             recipeText={textBoxValue}
             setTextData={setTextBoxValue}
             setFormData={setFormData}

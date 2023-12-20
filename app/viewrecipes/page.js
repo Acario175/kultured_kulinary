@@ -61,17 +61,6 @@ function RecipeCard(props) {
       >
         {props.data.description}
       </Text>
-      {/* <Button
-        pos={'absolute'}
-        // left={['35px', '340px']}
-        // bottom={['40px', '8px']}
-        // bottom={'1px'}
-        variant={'primary'}
-        bottom='1'
-        right='0'
-      >
-        Explore Kulinary
-      </Button> */}
       <Button pos={'absolute'} variant={'primary'} bottom='1' right='0'>
         <Link
           href={`/viewrecipes/${props.data.title}`}
@@ -81,9 +70,6 @@ function RecipeCard(props) {
           Explore Kulinary
         </Link>
       </Button>
-      {/* <Flex position='absolute' bottom='4' right='4'>
-        <Button colorScheme='blue'>Fixed Button</Button>
-      </Flex> */}
     </Box>
   );
 }
@@ -136,7 +122,6 @@ export default function Viewrecipes() {
             />
           )}
         </Box>
-        {/* <ExampleComponent /> */}
       </Box>
     </Box>
   );
