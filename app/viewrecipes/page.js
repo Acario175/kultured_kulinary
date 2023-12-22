@@ -8,7 +8,6 @@ import {
   Flex,
   Link,
   Spinner,
-  center,
   Center,
 } from '@chakra-ui/react';
 import useSWR from 'swr';
@@ -114,12 +113,9 @@ export default function Viewrecipes() {
           {data ? (
             tempHolder
           ) : (
-            <Spinner
-              center
-              emptyColor='gray.200'
-              color='purpel.500'
-              size='xl'
-            />
+            <Center>
+              <Spinner emptyColor='gray.200' color='purpel.500' size='xl' />
+            </Center>
           )}
         </Box>
       </Box>

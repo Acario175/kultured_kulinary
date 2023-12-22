@@ -10,7 +10,36 @@ import {
   Link,
 } from '@chakra-ui/react';
 
+import NavCard from '@/components/NavCard';
+
 // const fetcher = (url) => fetch(url).then((res) => res.json());
+
+const tempJson = [
+  {
+    title: 'Create Recipe',
+    desc: `This is your chance to add to our vast list `,
+    status: false,
+    link: '/createrecipe',
+  },
+  {
+    title: 'Discover Recipes',
+    desc: `Explore a vast collection of mouthwatering recipes from around the world. `,
+    status: false,
+    link: '/viewrecipes',
+  },
+  {
+    title: 'Add Ingredient',
+    desc: `This is your chance to add to our vast list `,
+    status: true,
+    link: '/',
+  },
+  {
+    title: 'Explore Ingredients',
+    desc: `Discover new ingredients from our culinary experts.`,
+    status: true,
+    link: '/',
+  },
+];
 
 async function sendDataToApi() {
   try {
@@ -51,6 +80,9 @@ async function sendDataToApi() {
     console.error('Error inserting data:', error);
   }
 }
+const tempHolder = tempJson.map((item, index) => {
+  return <NavCard key={`${item.title}+${index}`} data={item} />;
+});
 
 export default function Home() {
   return (
@@ -65,10 +97,18 @@ export default function Home() {
       // textAlign={'center'}
       gap={50}
     >
-      <Heading variant={'TestTitle'}>I'm a Heading</Heading>
-      <Button onClick={sendDataToApi} isDisabled>
+      {/* <Heading
+        variant={'TestTitle'}
+        fontSize='50px'
+        height='10px'
+        lineHeight='10px'
+        bg={'#d52e3f'}
+      >
+        I'm a Heading
+      </Heading> */}
+      {/* <Button onClick={sendDataToApi} isDisabled>
         Insert Data
-      </Button>
+      </Button> */}
       <Box
         w={['100vw', '30vw']}
         display={'flex'}
@@ -79,7 +119,7 @@ export default function Home() {
         alignContent={'center'}
         justifyContent={'center'}
       >
-        <Button variant='primary' isDisabled>
+        {/* <Button variant='primary' isDisabled>
           Add Ing
         </Button>
         <Button variant='primary'>
@@ -95,6 +135,8 @@ export default function Home() {
         <Button variant='primary' isDisabled>
           View All Ings
         </Button>
+        <NavCard data={tempJson[0]} /> */}
+        {tempHolder}
       </Box>
     </Box>
   );
