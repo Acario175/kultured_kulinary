@@ -96,21 +96,25 @@ export default function Home() {
       justifyContent={'center'}
       // textAlign={'center'}
       gap={50}
+      // marginT={[100, 120]}
+      marginTop={'8vh'}
     >
+      {/* <Box p={5} h={'20vh'} bg={'red'}> */}
       {/* <Heading
-        variant={'TestTitle'}
-        fontSize='50px'
-        height='10px'
-        lineHeight='10px'
-        bg={'#d52e3f'}
-      >
-        I'm a Heading
-      </Heading> */}
+          variant={'TestTitle'}
+          fontSize='50px'
+          height='10px'
+          lineHeight='10px'
+          bg={'#d52e3f'}
+        >
+          I'm a Heading
+        </Heading> */}
+      {/* </Box> */}
       {/* <Button onClick={sendDataToApi} isDisabled>
         Insert Data
       </Button> */}
       <Box
-        w={['100vw', '30vw']}
+        w={['100vw', '50vw']}
         display={'flex'}
         // flexDirection={'column'}
         flexWrap={'wrap'}

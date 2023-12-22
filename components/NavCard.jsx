@@ -9,7 +9,7 @@ function NavCard(props) {
     <Box
       display={'flex'}
       flexDir={'column'}
-      gap={5}
+      //   gap={5}
       h={'20vh'}
       w={['80vw', '20vw']}
       bg={'#a786df'}
