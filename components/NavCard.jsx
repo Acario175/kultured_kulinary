@@ -45,8 +45,8 @@ function NavCard(props) {
       <Button
         pos={'absolute'}
         variant={'primary'}
-        bottom='1'
-        right='0'
+        bottom='2'
+        right='2'
         isDisabled={props.data.status}
       >
         <Link

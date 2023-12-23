@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 
 import NavCard from '@/components/NavCard';
+import HeroIntro from '@/components/HeroIntro';
 
 // const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -87,60 +88,54 @@ const tempHolder = tempJson.map((item, index) => {
 export default function Home() {
   return (
     <Box
-      // bg='#fec7d7'
-      minH={'100vh'}
+      // bg='green'
+      minH={'90vh'}
       display='flex'
       flexWrap={'wrap'}
       flexDirection='column'
-      alignContent={'center'}
-      justifyContent={'center'}
+      // alignContent={'center'}
+      // justifyContent={'center'}
       // textAlign={'center'}
-      gap={50}
+      // gap={50}
       // marginT={[100, 120]}
       marginTop={'8vh'}
     >
-      {/* <Box p={5} h={'20vh'} bg={'red'}> */}
-      {/* <Heading
-          variant={'TestTitle'}
-          fontSize='50px'
-          height='10px'
-          lineHeight='10px'
-          bg={'#d52e3f'}
-        >
-          I'm a Heading
-        </Heading> */}
-      {/* </Box> */}
+      <Box
+        //  p={5}
+        h={'40vh'}
+        // bg={'gray'}
+        w={['100vw', '100vw']}
+        display='flex'
+        // alignContent={'center'}
+        justifyContent={'center'}
+        alignItems={'center'}
+      >
+        <HeroIntro />
+      </Box>
       {/* <Button onClick={sendDataToApi} isDisabled>
         Insert Data
       </Button> */}
       <Box
-        w={['100vw', '50vw']}
+        w={['100vw', '100vw']}
         display={'flex'}
         // flexDirection={'column'}
-        flexWrap={'wrap'}
-        gap={5}
+        // flexWrap={'wrap'}
+        // gap={5}
         // bg={'red'}
-        alignContent={'center'}
+        // alignContent={'center'}
         justifyContent={'center'}
       >
-        {/* <Button variant='primary' isDisabled>
-          Add Ing
-        </Button>
-        <Button variant='primary'>
-          <Link href='/createrecipe' style={{ textDecoration: 'none' }}>
-            Create Recipe
-          </Link>
-        </Button>
-        <Button variant='primary'>
-          <Link href='/viewrecipes' style={{ textDecoration: 'none' }}>
-            View All Recipes
-          </Link>
-        </Button>
-        <Button variant='primary' isDisabled>
-          View All Ings
-        </Button>
-        <NavCard data={tempJson[0]} /> */}
-        {tempHolder}
+        <Box
+          // bg={'yellow'}
+          w={['50%']}
+          display={'flex'}
+          flexWrap={'wrap'}
+          gap={5}
+          // alignContent={'center'}
+          justifyContent={'center'}
+        >
+          {tempHolder}
+        </Box>
       </Box>
     </Box>
   );
