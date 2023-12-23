@@ -13,7 +13,7 @@ function HeroIntro(props) {
       // flexDir={'column'}
       //   gap={5}
       h={'35vh'}
-      w={['80vw', '90vw']}
+      w={['95vw', '90vw']}
       // bg={'yellow'}
       // borderWidth='2px'
       borderRadius='lg'
@@ -24,14 +24,14 @@ function HeroIntro(props) {
       // pos={'relative'}
       // marginLeft={'5vw'}
       // m={'1vw'}
-      p={'1vw'}
+      p={['3vw', '1vw']}
     >
       <Box
         display={'flex'}
         flexDir={'column'}
-        gap={'5vh'}
+        gap={['2vh', '5vh']}
         // h={'30vh'}
-        w={['80vw', '40vw']}
+        w={['90vw', '40vw']}
         // bg={'#a786df'}
         // borderWidth='2px'
         // borderRadius='lg'
@@ -42,15 +42,15 @@ function HeroIntro(props) {
       >
         <Text
           fontFamily={`'Cabin Sketch', sans-serif`}
-          fontSize={'5rem'}
-          lineHeight={0.8}
+          fontSize={['3.2rem', '5rem']}
+          lineHeight={[0.9, 0.8]}
         >
           From <br />
-          novice cooks to <br />
-          seasoned chefs.
+          Novice Cooks to <br />
+          Seasoned Chefs.
         </Text>
         <Text
-          fontSize={'1.4rem'}
+          fontSize={'1.1rem'}
           fontFamily={`'Open Sans Variable', sans-serif`}
           fontWeight={'500'}
         >

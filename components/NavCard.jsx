@@ -10,8 +10,8 @@ function NavCard(props) {
       display={'flex'}
       flexDir={'column'}
       //   gap={5}
-      h={'20vh'}
-      w={['80vw', '20vw']}
+      h={['22vh', '20vh']}
+      w={['70vw', '20vw']}
       bg={'#a786df'}
       borderWidth='2px'
       borderRadius='lg'

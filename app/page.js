@@ -116,7 +116,7 @@ export default function Home() {
         Insert Data
       </Button> */}
       <Box
-        w={['100vw', '100vw']}
+        w={['100vw']}
         display={'flex'}
         // flexDirection={'column'}
         // flexWrap={'wrap'}
@@ -127,7 +127,7 @@ export default function Home() {
       >
         <Box
           // bg={'yellow'}
-          w={['50%']}
+          w={['80%', '50%']}
           display={'flex'}
           flexWrap={'wrap'}
           gap={5}
