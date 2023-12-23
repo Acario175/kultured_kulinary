@@ -50,8 +50,8 @@ function NavCard(props) {
         isDisabled={props.data.status}
       >
         <Link
-          href={`/viewrecipes`}
-          // href={`/${props.data.title}`}
+          //   href={`/viewrecipes`}
+          href={`${props.data.link}`}
           style={{ textDecoration: 'none' }}
         >
           {props.data.title}

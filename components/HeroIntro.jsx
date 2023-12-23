@@ -39,6 +39,7 @@ function HeroIntro(props) {
         // maxW=''
         // _hover={{ borderColor: '#e53170' }}
         // pos={'relative'}
+        color={'#473e13'}
       >
         <Text
           fontFamily={`'Cabin Sketch', sans-serif`}
@@ -52,11 +53,11 @@ function HeroIntro(props) {
         <Text
           fontSize={'1.1rem'}
           fontFamily={`'Open Sans Variable', sans-serif`}
-          fontWeight={'500'}
+          fontWeight={'600'}
         >
           Welcome to Kultured Kulinary, where Kulinary Kreativity meets
-          convenience! Dive into a world of flavor and fun with our app that's
-          designed to make every meal a masterpiece.{' '}
+          convenience! Dive into a world of flavor and fun with our app
+          that&apos;s designed to make every meal a masterpiece.
         </Text>
       </Box>
       <Box> </Box>
