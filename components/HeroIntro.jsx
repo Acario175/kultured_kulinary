@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Text, Button, Box, Link } from '@chakra-ui/react';
+import { Text, Button, Box, Image } from '@chakra-ui/react';
 import '@fontsource/cabin-sketch';
 // Supports weights 300-800
 import '@fontsource-variable/open-sans';
@@ -12,7 +12,9 @@ function HeroIntro(props) {
       display={'flex'}
       // flexDir={'column'}
       //   gap={5}
-      h={'35vh'}
+      // flex={'wrap'}
+      flexWrap={'wrap'}
+      h={['65vh', '35vh']}
       w={['95vw', '90vw']}
       // bg={'yellow'}
       // borderWidth='2px'
@@ -60,7 +62,25 @@ function HeroIntro(props) {
           that&apos;s designed to make every meal a masterpiece.
         </Text>
       </Box>
-      <Box> </Box>
+      <Box
+        // borderWidth='2px'
+        borderRadius='lg'
+        borderColor={'black'}
+        h={['30vh', '30vh']}
+        w={['90vw', '30vw']}
+        // bg={'red'}
+        display={'flex'}
+        alignContent={'center'}
+        justifyContent={'center'}
+      >
+        <Image
+          // p={5}
+          rounded={'md'}
+          alt={'Tom image'}
+          src={'images/cooking.png'}
+          // objectFit={'cover'}
+        />
+      </Box>
     </Box>
   );
 }

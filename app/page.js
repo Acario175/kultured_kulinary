@@ -98,11 +98,11 @@ export default function Home() {
       // textAlign={'center'}
       // gap={50}
       // marginT={[100, 120]}
-      marginTop={'8vh'}
+      marginTop={['8vh']}
     >
       <Box
         //  p={5}
-        h={'40vh'}
+        h={['70vh', '40vh']}
         // bg={'gray'}
         w={['100vw', '100vw']}
         display='flex'
