@@ -12,6 +12,8 @@ import {
 } from '@chakra-ui/react';
 import useSWR from 'swr';
 
+import ViewRxCards from '@/components/ViewRxCards';
+
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function RecipeCard(props) {
@@ -79,14 +81,19 @@ export default function Viewrecipes() {
     initialData: 'No Data',
   });
 
-  let tempHolder;
+  let tempHolder = [];
 
   if (data) {
-    // console.log(data.data);
-    tempHolder = data['data'].map((item, index) => {
-      return <RecipeCard key={item.title + index} data={item} />;
+    // console.log(data.data['0']);
+    data['data'].map((item, index) => {
+      tempHolder.push(<ViewRxCards key={item.title + index} data={item} />);
     });
+    // tempHolder.push(<ViewRxCards key='SampleTest' data={data['data'][0]} />);
+    // tempHolder.push(<ViewRxCards key='SampleTest' data={data['data'][0]} />);
+    // tempHolder.push(<ViewRxCards key='SampleTest' data={data['data'][0]} />);
+    // tempHolder.push(<ViewRxCards key='SampleTest' data={data['data'][0]} />);
   }
+
   return (
     <Box
       minH='70vh'
@@ -94,7 +101,7 @@ export default function Viewrecipes() {
       // bg='red'
       mt={'80px'}
       marginX={[1, 120]}
-      align='center'
+      // align='center'
     >
       <Box mt={5}>
         <Heading size='4xl' align='center' m={2}>
@@ -102,13 +109,17 @@ export default function Viewrecipes() {
         </Heading>
         <Box
           display={'flex'}
-          flex={'wrap'}
-          flexDirection={['column', 'row']}
-          gap={5}
-          m={50}
-          align='center'
-          alignItems={'center'}
+          flexWrap='wrap'
+          // flex={'wrap'}
+          // flexDirection={['column', 'column']}
+          gap={10}
+          // m={50}
+          // align='center'
+          // alignItems={'center'}
+          justifyContent={'center'}
           // bg={'red'}
+          // h={['86vh', '92vh']}
+          p={'1vw'}
         >
           {data ? (
             tempHolder

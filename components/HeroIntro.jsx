@@ -76,7 +76,7 @@ function HeroIntro(props) {
         <Image
           // p={5}
           rounded={'md'}
-          alt={'Tom image'}
+          alt={'Cooking image'}
           src={'images/cooking.png'}
           // objectFit={'cover'}
         />
