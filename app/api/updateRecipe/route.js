@@ -1,5 +1,3 @@
-// @############
-
 // import path from 'path';
 // import { promises as fs } from 'fs';
 import prisma from '@/lib/prisma';
@@ -13,12 +11,9 @@ export async function GET(request) {
 // Handles POST requests to /api
 export async function POST(request) {
   try {
-    // const { data } = request.body; // Assuming the JSON data will be sent as 'data' field in the request body
     const body = await request.json();
-    // console.log(request.body);
-    // console.log('first body', body);
+
     const { title, description, directions } = body;
-    // console.log(title, description, directions);
 
     if (!body) {
       return NextResponse.json(
@@ -36,23 +31,36 @@ export async function POST(request) {
     });
 
     if (!existingRecipe) {
-      const newRecipe = await prisma.recipe.create({
+      // const newRecipe = await prisma.recipe.create({
+      //   data: {
+      //     title,
+      //     description,
+      //     directions,
+      //   },
+      // });
+      // await prisma.$disconnect();
+      // return NextResponse.json(newRecipe);
+      throw new Error('Record not found');
+    } else {
+      const updatedRecord = await prisma.user.update({
+        where: {
+          title,
+        },
         data: {
           title,
           description,
           directions,
         },
       });
-      await prisma.$disconnect();
-      return NextResponse.json(newRecipe);
-    } else {
-      await prisma.$disconnect();
-      return NextResponse.json({ message: 'Object exist' });
+
+      // await prisma.$disconnect();
+      // return updatedRecord;
+      return NextResponse.json(updatedRecord);
     }
     // }
   } catch (error) {
     return NextResponse.json({
-      error: 'Error inserting data',
+      error: 'Error with data',
       message: error.message,
     });
   } finally {
