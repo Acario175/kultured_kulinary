@@ -1,8 +1,8 @@
 'use client';
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-
-import { Box, Text, SimpleGrid } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { Box, Text, Button, Link } from '@chakra-ui/react';
 import useSWR from 'swr';
 
 const fetcher = async ([url, title]) =>
@@ -33,6 +33,7 @@ const Recipeprop = () => {
     tempText = data.directions.split(
       /(\nRecipe Below:\n|Ingredients Below:\n)/
     );
+
     tempHolder = (
       <Box
         display='flex'
@@ -46,6 +47,37 @@ const Recipeprop = () => {
         <Text>{(tempText[1], tempText[2])}</Text>
         <div> {(tempText[1], tempText[2])}</div>
         <Text>{tempText[1]}</Text>
+        <NextLink
+          href={{
+            pathname: '/updaterecipe',
+            query: {
+              title: data.title,
+              description: data.description,
+              directions: data.directions,
+            },
+          }}
+          // passHref
+        >
+          {/* <Button
+            // pos={'absolute'}
+            variant={'primary'}
+            // bottom='2'
+            // right='2'
+            // isDisabled={props.data.status}
+            // as='a'
+          > */}
+          <Link
+            //   href={`/viewrecipes`}
+            // href={`/updaterecipe`}
+            style={{ textDecoration: 'none' }}
+            // href={{ pathname: '/updaterecipe', query: data.title }}
+            // passhref
+          >
+            {'updaterecipe'}
+          </Link>
+          {/* </Button> */}
+          {/* {'updaterecipe'} */}
+        </NextLink>
       </Box>
     );
   }
