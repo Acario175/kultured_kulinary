@@ -45,15 +45,15 @@ const Recipeprop = () => {
         <Text>Description: {data.description}</Text>
         {/* <Text>{data.directions}</Text> */}
         <Text>{(tempText[1], tempText[2])}</Text>
-        <div> {(tempText[1], tempText[2])}</div>
+        {/* <div> {(tempText[1], tempText[2])}</div> */}
         <Text>{tempText[1]}</Text>
         <NextLink
           href={{
             pathname: '/updaterecipe',
             query: {
               title: data.title,
-              description: data.description,
-              directions: data.directions,
+              // description: data.description,
+              // directions: data.directions,
             },
           }}
           // passHref
@@ -66,15 +66,15 @@ const Recipeprop = () => {
             // isDisabled={props.data.status}
             // as='a'
           > */}
-          <Link
+          {/* <Link
             //   href={`/viewrecipes`}
             // href={`/updaterecipe`}
             style={{ textDecoration: 'none' }}
             // href={{ pathname: '/updaterecipe', query: data.title }}
             // passhref
-          >
-            {'updaterecipe'}
-          </Link>
+          > */}
+          {'updaterecipe'}
+          {/* </Link> */}
           {/* </Button> */}
           {/* {'updaterecipe'} */}
         </NextLink>

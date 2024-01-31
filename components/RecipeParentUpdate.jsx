@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 
 import {
@@ -15,7 +15,16 @@ import {
 } from '@chakra-ui/react';
 import useSWR from 'swr';
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = async ([url, title]) =>
+  fetch(url, {
+    method: 'Post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(title),
+  }).then((res) => res.json());
+
+const fetcherGet = (url) => fetch(url).then((res) => res.json());
 
 // Sibling Component A
 function TextComp(props) {
@@ -41,12 +50,13 @@ function IngrdsDropdown(props) {
   const [inputValue, setInputValue] = useState('');
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const { data, error } = useSWR('/api/readData', fetcher, {
+  const { data, error } = useSWR('/api/readData', fetcherGet, {
     revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
     initialData: 'No Data',
   });
 
   const handleOptionClick = (option) => {
+    console.log(option);
     if (option) {
       const tempText = props.recipeText.split(
         /(\nRecipe Below:\n|Ingredients Below:\n)/
@@ -69,17 +79,19 @@ function IngrdsDropdown(props) {
       suppressHydrationWarning={true}
       inputId='aria-example-input'
       instanceId={'sfgxcnh'}
-      placeholder='Search options'
+      placeholder='No options'
       options={{ label: 'No Data', value: 'No Data' }}
     />
   );
 
+  // console.log(data);
   if (data) {
     tempBox = (
       <Select
         suppressHydrationWarning={true}
         inputId='aria-example-input'
         instanceId={'sdfgxcnh'}
+        // placeholder='Search options'
         // options={filterOptions(inputValue)}
         options={data.data}
         value={selectedOption}
@@ -101,17 +113,41 @@ function IngrdsDropdown(props) {
 
 // Parent Component
 function RecipeParent(props) {
-  // console.log(props);
-  const [textBoxValue, setTextBoxValue] = useState(
-    props.data.get('directions')
-  );
+  console.log(props.data);
 
+  const { data, error } = useSWR(['/api/loneRecipe', props.data], fetcher, {
+    revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
+    initialData: 'No Data',
+  });
+
+  console.log(data);
+
+  const [textBoxValue, setTextBoxValue] = useState('Incoming  DAta');
   const [formData, setFormData] = useState({
-    title: props.data.get('title'),
-    description: props.data.get('description'),
+    title: 'Loding Title',
+    description: 'Loding Description',
     // ingredient: '',
     // instructions: 'Ingredients Below:\n\nRecipe Below:\n',
   });
+
+  // if (props.data) {
+  useEffect(() => {
+    // console.log('hi');
+    // console.log(data);
+    if (data) {
+      console.log(data);
+      setFormData({
+        title: data.title,
+        description: data.description,
+      });
+      setTextBoxValue(data.directions);
+    }
+  }, [data]);
+  // }
+
+  // useEffect(() => {
+  //   setFormData({ title: props.data.title, description: 'Loding Description' });
+  // }, [props.data]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -27,6 +27,50 @@ export default function updaterecipe() {
   // console.log(searchParams.get('title')); // Logs "search"
   // console.log(searchParams.get('description')); // Logs "description"
   // console.log(searchParams.get('directions')); // Logs "directions"
+
+  const pathname = searchParams.get('title');
+  // console.log(pathname);
+  const title = pathname.split('/').slice(-1)[0].replaceAll('%20', ' ');
+  console.log(title);
+  // const { data, error } = useSWR(['/api/loneRecipe', title], fetcher, {
+  //   revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
+  //   initialData: 'No Data',
+  // });
+
+  // let tempHolder = <Box>No Data</Box>;
+  let tempText = '';
+
+  // console.log(data);
+
+  // if (data) {
+  // tempText = data.directions.split(
+  //   /(\nRecipe Below:\n|Ingredients Below:\n)/
+  // );
+
+  // tempHolder = (
+  //   <Box
+  //     display='flex'
+  //     // flexWrap={'wrap'}
+  //     flexDirection='column'
+  //     gap={5}
+  //   >
+  //     <Text>Recipe Title: {data.title}</Text>
+  //     <Text>Description: {data.description}</Text>
+  //     {/* <Text>{data.directions}</Text> */}
+  //     <Text>{(tempText[1], tempText[2])}</Text>
+  //     <div> {(tempText[1], tempText[2])}</div>
+  //     <Text>{tempText[1]}</Text>
+  //       {/* <Button
+  //         // pos={'absolute'}
+  //         variant={'primary'}
+  //         // bottom='2'
+  //         // right='2'
+  //         // isDisabled={props.data.status}
+  //         // as='a'
+  //       > */}
+  //   </Box>
+  // );
+  // }
   return (
     <Box
       minH='70vh'
@@ -49,7 +93,7 @@ export default function updaterecipe() {
           Below:&quot; section & Ingredients should go in the &quot;Ingridents
           Below:&quot; section
         </Text>
-        <RecipeParentUpdate data={searchParams} />
+        <RecipeParentUpdate data={title} />
       </Box>
     </Box>
   );
