@@ -31,7 +31,7 @@ export default function updaterecipe() {
   const pathname = searchParams.get('title');
   // console.log(pathname);
   const title = pathname.split('/').slice(-1)[0].replaceAll('%20', ' ');
-  console.log(title);
+  // console.log(title);
   // const { data, error } = useSWR(['/api/loneRecipe', title], fetcher, {
   //   revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
   //   initialData: 'No Data',

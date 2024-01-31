@@ -56,7 +56,8 @@ function IngrdsDropdown(props) {
   });
 
   const handleOptionClick = (option) => {
-    console.log(option);
+    // console.log(option);
+    // console.log(props.recipeText);
     if (option) {
       const tempText = props.recipeText.split(
         /(\nRecipe Below:\n|Ingredients Below:\n)/
@@ -113,16 +114,16 @@ function IngrdsDropdown(props) {
 
 // Parent Component
 function RecipeParent(props) {
-  console.log(props.data);
+  // console.log(props.data);
 
   const { data, error } = useSWR(['/api/loneRecipe', props.data], fetcher, {
     revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
     initialData: 'No Data',
   });
 
-  console.log(data);
+  // console.log(data);
 
-  const [textBoxValue, setTextBoxValue] = useState('Incoming  DAta');
+  const [textBoxValue, setTextBoxValue] = useState('Incoming  Data');
   const [formData, setFormData] = useState({
     title: 'Loding Title',
     description: 'Loding Description',
@@ -135,7 +136,7 @@ function RecipeParent(props) {
     // console.log('hi');
     // console.log(data);
     if (data) {
-      console.log(data);
+      // console.log(data);
       setFormData({
         title: data.title,
         description: data.description,
@@ -159,7 +160,7 @@ function RecipeParent(props) {
     // console.log(tempJson);
 
     try {
-      const response = await fetch('/api/submitRecipe', {
+      const response = await fetch('/api/updateRecipe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
