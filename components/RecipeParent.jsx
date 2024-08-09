@@ -26,6 +26,7 @@ function TextComp(props) {
         borderColor={'pink'}
         bg={'gray'}
         // placeholder='Editable Text'
+        name='directions'
         value={props.recipeText}
         onChange={(e) => props.setTextData(e.target.value)}
         size='lg'
@@ -107,7 +108,7 @@ function RecipeParent() {
 
   const [formData, setFormData] = useState({
     title: '',
-    description: '',
+    rec_description: '',
     // ingredient: '',
     // instructions: 'Ingredients Below:\n\nRecipe Below:\n',
   });
@@ -116,7 +117,7 @@ function RecipeParent() {
     e.preventDefault();
     const tempJson = {
       title: formData.title,
-      description: formData.description,
+      description: formData.rec_description,
       directions: textBoxValue,
     };
     // console.log(tempJson);
@@ -164,8 +165,9 @@ function RecipeParent() {
         <FormControl marginY={2}>
           <FormLabel display='inline-block'>Description</FormLabel>
           <Textarea
-            name='description'
-            value={formData.description}
+            name='rec_description'
+            type='text'
+            value={formData.rec_description}
             onChange={handleChange}
             w={['80vw', '40vw']}
           />
@@ -189,7 +191,9 @@ function RecipeParent() {
           />
         </FormControl>
         {/* <Button type='submit' isDisabled> */}
-        <Button type='submit'>Submit Recipe</Button>
+        <Button name='rec_submit' type='submit'>
+          Submit Recipe
+        </Button>
       </form>
     </Box>
   );
