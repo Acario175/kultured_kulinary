@@ -31,6 +31,7 @@ export async function POST(request) {
     const insertedData = [];
 
     for (const item of body) {
+      console.log(item.strIngredient);
       const existingItem = await prisma.ingredient.findUnique({
         where: {
           name: item.strIngredient,

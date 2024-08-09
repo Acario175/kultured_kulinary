@@ -188,9 +188,8 @@ function RecipeParent() {
             setFormData={setFormData}
           />
         </FormControl>
-        <Button type='submit' isDisabled>
-          Submit Recipe
-        </Button>
+        {/* <Button type='submit' isDisabled> */}
+        <Button type='submit'>Submit Recipe</Button>
       </form>
     </Box>
   );

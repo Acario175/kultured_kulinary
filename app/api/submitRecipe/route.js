@@ -12,6 +12,7 @@ export async function GET(request) {
 
 // Handles POST requests to /api
 export async function POST(request) {
+  console.log('REquest found');
   try {
     // const { data } = request.body; // Assuming the JSON data will be sent as 'data' field in the request body
     const body = await request.json();
@@ -36,11 +37,16 @@ export async function POST(request) {
     });
 
     if (!existingRecipe) {
+      tempText = directions.split(/(Recipe Below:\n|Ingredients Below:\n)/);
+
+      console.log('tempText');
+      console.log(tempText);
       const newRecipe = await prisma.recipe.create({
         data: {
           title,
           description,
           directions,
+          ingredients,
         },
       });
       await prisma.$disconnect();
