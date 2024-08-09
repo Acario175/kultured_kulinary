@@ -12,7 +12,7 @@ export async function GET(request) {
 
 // Handles POST requests to /api
 export async function POST(request) {
-  console.log('REquest found');
+  console.log('POST Request found');
   try {
     // const { data } = request.body; // Assuming the JSON data will be sent as 'data' field in the request body
     const body = await request.json();
@@ -36,17 +36,46 @@ export async function POST(request) {
       },
     });
 
+    console.log(!existingRecipe);
     if (!existingRecipe) {
-      tempText = directions.split(/(Recipe Below:\n|Ingredients Below:\n)/);
+      console.log('in IF');
+      // console.log(directions);
+      // tempText = directions.split(Recipe Below:\n|Ingredients Below:);
+      // const parts = directions.split(/(\n)/);
+      // const result = parts.filter(Boolean);
 
-      console.log('tempText');
-      console.log(tempText);
+      const match = directions.match(
+        /Ingredients Below:\s*([\s\S]*?)\s*Recipe Below:/i
+      );
+
+      const recipeMatch = directions.match(/Recipe Below:\s*([\s\S]*)/);
+
+      // Log the results
+      // console.log(result[0]);
+      // console.log(typeof directions);
+      // console.log(result);
+      // const [ingredientsSection, recipeSection] =
+      //   directions.split('Recipe Below:');
+
+      // console.log('after splt');
+      console.log('directions');
+      console.log(match[1].trim());
+      console.log(recipeMatch[1].trim());
+
+      // const parts = directions.split(/(Recipe Below:|Ingredients Below:)/);
+      // console.log(parts);
+
+      // const ingredients_test = parts[2].trim(); // Text after "Ingredients Below:"
+      // const recipe_test = parts[4].trim(); // Text after "Recipe Below:"
+
+      // console.log('Ingredients:', ingredients_test);
+      // console.log('Recipe:', recipe_test);
       const newRecipe = await prisma.recipe.create({
         data: {
           title,
           description,
-          directions,
-          ingredients,
+          directions: recipeMatch[1].trim(),
+          ingredients: match[1].trim(),
         },
       });
       await prisma.$disconnect();

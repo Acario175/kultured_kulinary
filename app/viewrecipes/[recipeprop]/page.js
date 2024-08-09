@@ -43,7 +43,8 @@ const Recipeprop = () => {
       >
         <Text>Recipe Title: {data.title}</Text>
         <Text>Description: {data.description}</Text>
-        {/* <Text>{data.directions}</Text> */}
+        <Text>{data.directions}</Text>
+        <Text>{data.directions}</Text>
         <Text>{(tempText[1], tempText[2])}</Text>
         {/* <div> {(tempText[1], tempText[2])}</div> */}
         <Text>{tempText[1]}</Text>

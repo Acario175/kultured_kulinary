@@ -3,10 +3,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+
 import time
 
 # Set up the browser (Chrome in this case)
-driver = webdriver.Chrome()  # Make sure 'chromedriver' is in your PATH
+
+chrome_options = Options()
+
+# Set the detach option to True
+chrome_options.add_experimental_option("detach", True)
+
+driver = webdriver.Chrome(options=chrome_options)  # Make sure 'chromedriver' is in your PATH
 
 
 try:
@@ -19,7 +27,7 @@ try:
 
     # Fill in the title
     title_input = driver.find_element(By.NAME, "title")
-    title_input.send_keys("My Recipe Title")
+    title_input.send_keys("My Test Recipe")
 
     # Fill in the description
     desc_input = driver.find_element(By.NAME, "rec_description")
@@ -42,7 +50,7 @@ try:
 
     dirs_input.send_keys(Keys.DELETE)
 
-    dirs_input.send_keys("Ingredients Below:\n1 cup flour\n 2 eggs\n 1/2 cup milk\nRecipeBelow: \nMix ingredients, bake at 350°F for 30 minutes.")
+    dirs_input.send_keys("Ingredients Below:\n1 cup flour\n 2 eggs\n 1/2 cup milk\nRecipe Below: \nMix ingredients, bake at 350°F for 30 minutes.")
 
     # Optionally, submit the form
     submit_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
@@ -52,7 +60,7 @@ try:
     # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "confirmation")))
 
     # Keep the browser open for a few seconds to visually confirm the result (not necessary for automated testing)
-    time.sleep(5)
+    # time.sleep(5)
 
 finally:
     # Close the browser
