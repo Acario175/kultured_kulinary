@@ -112,7 +112,9 @@ export default function Home() {
       >
         <HeroIntro />
       </Box>
-      <Button onClick={sendDataToApi}>Insert Data</Button>
+      <Button onClick={sendDataToApi} isDisabled>
+        Insert Data
+      </Button>
       <Box
         w={['100vw']}
         display={'flex'}
