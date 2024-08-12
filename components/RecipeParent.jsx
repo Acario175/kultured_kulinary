@@ -52,7 +52,7 @@ function IngrdsDropdown(props) {
       const tempText = props.recipeText.split(
         /(\nRecipe Below:\n|Ingredients Below:\n)/
       );
-      console.log(tempText);
+      // console.log(tempText);
       props.setTextData(
         tempText[1] +
           tempText[2] +

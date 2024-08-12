@@ -36,9 +36,9 @@ export async function POST(request) {
       },
     });
 
-    console.log(!existingRecipe);
+    // console.log(!existingRecipe);
     if (!existingRecipe) {
-      console.log('in IF');
+      // console.log('in IF');
       // console.log(directions);
       // tempText = directions.split(Recipe Below:\n|Ingredients Below:);
       // const parts = directions.split(/(\n)/);
@@ -47,6 +47,8 @@ export async function POST(request) {
       const match = directions.match(
         /Ingredients Below:\s*([\s\S]*?)\s*Recipe Below:/i
       );
+
+      // console.log(match);
 
       const recipeMatch = directions.match(/Recipe Below:\s*([\s\S]*)/);
 
@@ -58,9 +60,11 @@ export async function POST(request) {
       //   directions.split('Recipe Below:');
 
       // console.log('after splt');
-      console.log('directions');
-      console.log(match[1].trim());
-      console.log(recipeMatch[1].trim());
+      // console.log('directions');
+      // console.log(match[1].split('\n'));
+
+      // tempIng = match[1].split('\n');
+      // console.log(recipeMatch[1].trim());
 
       // const parts = directions.split(/(Recipe Below:|Ingredients Below:)/);
       // console.log(parts);

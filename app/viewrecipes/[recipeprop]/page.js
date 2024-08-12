@@ -30,9 +30,10 @@ const Recipeprop = () => {
   let tempText = '';
 
   if (data) {
-    tempText = data.directions.split(
-      /(\nRecipe Below:\n|Ingredients Below:\n)/
-    );
+    // console.log(data);
+    // tempText = data.directions.split(
+    //   /(\nRecipe Below:\n|Ingredients Below:\n)/
+    // );
 
     tempHolder = (
       <Box
@@ -41,13 +42,17 @@ const Recipeprop = () => {
         flexDirection='column'
         gap={5}
       >
-        <Text>Recipe Title: {data.title}</Text>
+        <Text>
+          Recipe Title:<br></br> {data.title}
+        </Text>
         <Text>Description: {data.description}</Text>
+        <Text>Ingredients: </Text>
+        <Text whiteSpace='pre-line'>{data.ingredients}</Text>
+        <Text>Directions: </Text>
         <Text>{data.directions}</Text>
-        <Text>{data.directions}</Text>
-        <Text>{(tempText[1], tempText[2])}</Text>
+        {/* <Text>{(tempText[1], tempText[2])}</Text> */}
         {/* <div> {(tempText[1], tempText[2])}</div> */}
-        <Text>{tempText[1]}</Text>
+        {/* <Text>{tempText[1]}</Text> */}
         <NextLink
           href={{
             pathname: '/updaterecipe',
@@ -83,7 +88,7 @@ const Recipeprop = () => {
     );
   }
 
-  console.log(tempText);
+  // console.log(tempText);
   // console.log(data);
 
   return (

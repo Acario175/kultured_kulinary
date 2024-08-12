@@ -56,21 +56,26 @@ function IngrdsDropdown(props) {
   });
 
   const handleOptionClick = (option) => {
-    // console.log(option);
-    // console.log(props.recipeText);
+    console.log(option);
+    console.log(props.recipeText);
+
     if (option) {
       const tempText = props.recipeText.split(
         /(\nRecipe Below:\n|Ingredients Below:\n)/
       );
       console.log(tempText);
+      let onClickTextBox = `Ingredients Below:\n${tempText[2]}\n${option.value}:\nRecipe Below:\n${tempText[4]}
+      `;
+      console.log(onClickTextBox);
       props.setTextData(
-        tempText[1] +
-          tempText[2] +
-          option.value +
-          ': ' +
-          '\n' +
-          tempText[3] +
-          tempText[4]
+        // tempText[1] +
+        //   tempText[2] +
+        //   option.value +
+        //   ': ' +
+        //   '\n' +
+        //   tempText[3] +
+        //   tempText[4]
+        onClickTextBox
       );
     }
   };
@@ -121,7 +126,16 @@ function RecipeParent(props) {
     initialData: 'No Data',
   });
 
-  // console.log(data);
+  let tempTextBox = '';
+
+  console.log(data);
+
+  //   console.log(`
+  // Ingredients Below:
+  // ${data.ingredients}
+  // Recipe Below:
+  // ${data.directions}
+  //     `);
 
   const [textBoxValue, setTextBoxValue] = useState('Incoming  Data');
   const [formData, setFormData] = useState({
@@ -137,11 +151,13 @@ function RecipeParent(props) {
     // console.log(data);
     if (data) {
       // console.log(data);
+      tempTextBox = `Ingredients Below:\n${data.ingredients}\nRecipe Below:\n${data.directions}
+          `;
       setFormData({
         title: data.title,
         description: data.description,
       });
-      setTextBoxValue(data.directions);
+      setTextBoxValue(tempTextBox);
     }
   }, [data]);
   // }

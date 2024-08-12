@@ -8,13 +8,16 @@ export async function GET(request) {
   // console.log('We in the Get');
   // return NextResponse.json({ message: 'Hello World' });
 
+  const data = await prisma.Ingredient.findMany();
+
   try {
     // const data = await prisma.post.findUnique({
     //   where: { id: postId },
     //   include: { author: true },
     // });
-    const data = await prisma.Ingredient.findMany();
+    // const data = await prisma.Ingredient.findMany();
 
+    // console.log('data');
     // console.log(data);
 
     if (!data) {
