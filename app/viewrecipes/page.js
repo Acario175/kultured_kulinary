@@ -9,6 +9,7 @@ import {
   Link,
   Spinner,
   Center,
+  VStack,
 } from '@chakra-ui/react';
 import useSWR from 'swr';
 
@@ -124,8 +125,19 @@ export default function Viewrecipes() {
           {data ? (
             tempHolder
           ) : (
-            <Center>
-              <Spinner emptyColor='gray.200' color='purpel.500' size='xl' />
+            <Center mt={10}>
+              <VStack spacing={0}>
+                <Spinner
+                  thickness='60px'
+                  emptyColor='gray.200'
+                  color='purple.500'
+                  boxSize='500px'
+                  speed='0.65s'
+                />
+                <Text fontSize='60px' color='gray.700'>
+                  Loading...
+                </Text>
+              </VStack>
             </Center>
           )}
         </Box>

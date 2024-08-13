@@ -36,7 +36,7 @@ export async function POST(request) {
     });
 
     if (existingItem) {
-      console.log(existingItem);
+      // console.log(existingItem);
       return NextResponse.json(existingItem);
     }
 

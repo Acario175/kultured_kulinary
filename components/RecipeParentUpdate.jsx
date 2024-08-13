@@ -242,9 +242,7 @@ function RecipeParent(props) {
             setFormData={setFormData}
           />
         </FormControl>
-        <Button type='submit' isDisabled>
-          Submit Recipe
-        </Button>
+        <Button type='submit'>Submit Recipe</Button>
       </form>
     </Box>
   );

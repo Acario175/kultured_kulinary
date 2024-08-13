@@ -42,19 +42,29 @@ export async function POST(request) {
       // return NextResponse.json(newRecipe);
       throw new Error('Record not found');
     } else {
-      const updatedRecord = await prisma.user.update({
+      // console.log(existingRecipe);
+      const match = directions.match(
+        /Ingredients Below:\s*([\s\S]*?)\s*Recipe Below:/i
+      );
+
+      const recipeMatch = directions.match(/Recipe Below:\s*([\s\S]*)/);
+
+      const updatedRecord = await prisma.recipe.update({
         where: {
           title,
         },
         data: {
           title,
           description,
-          directions,
+          directions: recipeMatch[1].trim(),
+          ingredients: match[1].trim(),
         },
       });
 
       // await prisma.$disconnect();
       // return updatedRecord;
+      // console.log('updatedRecord');
+      // console.log(updatedRecord);
       return NextResponse.json(updatedRecord);
     }
     // }
