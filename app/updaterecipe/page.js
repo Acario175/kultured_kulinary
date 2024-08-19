@@ -16,12 +16,19 @@ import useSWR from 'swr';
 //     body: JSON.stringify(title),
 //   }).then((res) => res.json());
 
-export default function Updaterecipe() {
+Updaterecipe.getInitialProps = async ({ query }) => {
+  const { title } = query;
+
+  return { title };
+};
+
+export default function Updaterecipe(props) {
   // const router = useRouter();
   // const pathname = useSearchParams();
   // console.log(pathname.search);
   // const receivedData = router.query;
   // console.log(router);
+  console.log(props);
 
   const searchParams = useSearchParams();
   // console.log(searchParams.get('title')); // Logs "search"
