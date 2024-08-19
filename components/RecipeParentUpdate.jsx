@@ -128,7 +128,7 @@ function RecipeParent(props) {
 
   let tempTextBox = '';
 
-  console.log(data);
+  // console.log(data);
 
   //   console.log(`
   // Ingredients Below:

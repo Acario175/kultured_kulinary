@@ -1,11 +1,11 @@
 'use client';
 // import Head from 'next/head';
 import { Heading, Box, Flex, Text } from '@chakra-ui/react';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+// import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 import RecipeParentUpdate from '@/components/RecipeParentUpdate';
 
-import useSWR from 'swr';
+// import useSWR from 'swr';
 
 // const fetcher = async ([url, title]) =>
 //   fetch(url, {
@@ -17,9 +17,7 @@ import useSWR from 'swr';
 //   }).then((res) => res.json());
 
 Updaterecipe.getInitialProps = async ({ query }) => {
-  const { title } = query;
-
-  return { title };
+  return { query };
 };
 
 export default function Updaterecipe(props) {
@@ -28,16 +26,17 @@ export default function Updaterecipe(props) {
   // console.log(pathname.search);
   // const receivedData = router.query;
   // console.log(router);
-  console.log(props);
+  // console.log(props);
+  // console.log(props.searchParams.title);
 
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   // console.log(searchParams.get('title')); // Logs "search"
   // console.log(searchParams.get('description')); // Logs "description"
   // console.log(searchParams.get('directions')); // Logs "directions"
 
-  const pathname = searchParams.get('title');
+  // const pathname = searchParams.get('title');
   // console.log(pathname);
-  const title = pathname.split('/').slice(-1)[0].replaceAll('%20', ' ');
+  // const title = pathname.split('/').slice(-1)[0].replaceAll('%20', ' ');
   // console.log(title);
   // const { data, error } = useSWR(['/api/loneRecipe', title], fetcher, {
   //   revalidateOnMount: true, // Forces the cache to be used and checked before calling the API
@@ -45,7 +44,7 @@ export default function Updaterecipe(props) {
   // });
 
   // let tempHolder = <Box>No Data</Box>;
-  let tempText = '';
+  // let tempText = '';
 
   // console.log(data);
 
@@ -100,7 +99,7 @@ export default function Updaterecipe(props) {
           Below:&quot; section & Ingredients should go in the &quot;Ingridents
           Below:&quot; section
         </Text>
-        <RecipeParentUpdate data={title} />
+        <RecipeParentUpdate data={props.searchParams.title} />
       </Box>
     </Box>
   );
