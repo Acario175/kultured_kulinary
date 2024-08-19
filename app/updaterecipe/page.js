@@ -7,16 +7,16 @@ import RecipeParentUpdate from '@/components/RecipeParentUpdate';
 
 import useSWR from 'swr';
 
-const fetcher = async ([url, title]) =>
-  fetch(url, {
-    method: 'Post',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(title),
-  }).then((res) => res.json());
+// const fetcher = async ([url, title]) =>
+//   fetch(url, {
+//     method: 'Post',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(title),
+//   }).then((res) => res.json());
 
-export default function updaterecipe() {
+export default function Updaterecipe() {
   // const router = useRouter();
   // const pathname = useSearchParams();
   // console.log(pathname.search);
