@@ -25,7 +25,7 @@ function ViewRxCards(props) {
       bg={'white'}
       // maxW='sm'
       // _hover={{ borderColor: '#e53170' }}
-      // pos={'relative'}
+      pos={'relative'}
       // marginLeft={'5vw'}
       // m={'1vw'}
       // p={['3vw', '1vw']}
@@ -64,6 +64,7 @@ function ViewRxCards(props) {
           noOfLines={6}
           // mt={'5px'}
           // right={'500px'}
+          overflowY='auto'
         >
           {props.data.description}
         </Text>
@@ -113,7 +114,7 @@ function ViewRxCards(props) {
         justifyContent={'center'}
       > */}
       <Avatar
-        // pos={'absolute'}
+        pos={'absolute'}
         // p={5}
         bgColor={'white'}
         borderWidth={5}
@@ -122,8 +123,10 @@ function ViewRxCards(props) {
         alt={'Cooking image'}
         src={'images/cooking.png'}
         // objectFit={'cover'}
-        right={'490px'}
-        bottom={'20px'}
+        // right={['490px']}
+        // bottom={'20px'}
+        top={'-22px'}
+        left={['80vw', '10px']}
       />
       {/* </Box>{' '} */}
     </Box>
