@@ -35,14 +35,6 @@ try:
 
     desc_input.send_keys("This is a description of my recipe.")
 
-    # Fill in the ingredients
-    # ings_input = driver.find_element(By.NAME, "ingredients")
-    # ings_input.send_keys("1 cup flour, 2 eggs, 1/2 cup milk")
-
-    # Fill in the directions
-    # driver.find_element(By.NAME, "directions").clear()
-    # dirs_input.clear()
-
     dirs_input = driver.find_element(By.NAME, "directions")
 
     dirs_input.send_keys(Keys.COMMAND + "a")
@@ -56,11 +48,6 @@ try:
     submit_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
     submit_button.click()
 
-    # Optional: Wait for a confirmation message or next page
-    # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "confirmation")))
-
-    # Keep the browser open for a few seconds to visually confirm the result (not necessary for automated testing)
-    # time.sleep(5)
 
 finally:
     # Close the browser

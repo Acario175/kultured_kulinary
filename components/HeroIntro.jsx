@@ -14,7 +14,7 @@ function HeroIntro(props) {
       //   gap={5}
       // flex={'wrap'}
       flexWrap={'wrap'}
-      h={['65vh', '35vh']}
+      h={['65vh', '35vh']} //'65vh', '65vh', '40vh',
       w={['95vw', '90vw']}
       // bg={'yellow'}
       // borderWidth='2px'
@@ -26,12 +26,12 @@ function HeroIntro(props) {
       // pos={'relative'}
       // marginLeft={'5vw'}
       // m={'1vw'}
-      p={['3vw', '1vw']}
+      p={['3vw', '3vw', '3vw', '3vw', '1vw']}
     >
       <Box
         display={'flex'}
         flexDir={'column'}
-        gap={['2vh', '5vh']}
+        gap={['2vh', '2vh', '2vh', '1vh', '5vh']}
         // h={'30vh'}
         w={['90vw', '40vw']}
         // bg={'#a786df'}
@@ -67,7 +67,7 @@ function HeroIntro(props) {
         borderRadius='lg'
         borderColor={'black'}
         h={['30vh', '30vh']}
-        w={['90vw', '30vw']}
+        w={['90vw', '90vw', '90vw', '40vw', '30vw']}
         // bg={'red'}
         display={'flex'}
         alignContent={'center'}

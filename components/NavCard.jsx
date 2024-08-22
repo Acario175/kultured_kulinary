@@ -10,8 +10,8 @@ function NavCard(props) {
       display={'flex'}
       flexDir={'column'}
       //   gap={5}
-      h={['22vh', '20vh']}
-      w={['70vw', '20vw']}
+      h={['25vh', '25vh', '25vh', '25vh', '30vh']}
+      w={['70vw', '70vw', '70vw', '30vw', '20vw']}
       bg={'#a786df'}
       borderWidth='2px'
       borderRadius='lg'
@@ -28,6 +28,7 @@ function NavCard(props) {
         noOfLines={1}
         pt={5}
         px={5}
+        fontSize={['2rem']}
       >
         {props.data.title}
       </Box>
@@ -39,24 +40,25 @@ function NavCard(props) {
         noOfLines={3}
         // py={1}
         px={5}
+        fontSize={['1em', '1.2em']}
       >
         {props.data.desc}
       </Box>
-      <Button
-        pos={'absolute'}
-        variant={'primary'}
-        bottom='2'
-        right='2'
-        isDisabled={props.data.status}
+      <Link
+        //   href={`/viewrecipes`}
+        href={`${props.data.link}`}
+        style={{ textDecoration: 'none' }}
       >
-        <Link
-          //   href={`/viewrecipes`}
-          href={`${props.data.link}`}
-          style={{ textDecoration: 'none' }}
+        <Button
+          pos={'absolute'}
+          variant={'primary'}
+          bottom='2'
+          right='2'
+          isDisabled={props.data.status}
         >
           {props.data.title}
-        </Link>
-      </Button>
+        </Button>
+      </Link>
     </Box>
   );
 }

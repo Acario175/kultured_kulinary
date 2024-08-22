@@ -1,14 +1,6 @@
 'use client';
 
-import {
-  Box,
-  chakra,
-  shouldForwardProp,
-  Button,
-  Text,
-  Heading,
-  Link,
-} from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import NavCard from '@/components/NavCard';
 import HeroIntro from '@/components/HeroIntro';
@@ -42,45 +34,46 @@ const tempJson = [
   },
 ];
 
-async function sendDataToApi() {
-  try {
-    const response = await fetch(
-      'https://www.themealdb.com/api/json/v1/1/list.php?i=list'
-    );
+// async function sendDataToApi() {
+//   try {
+//     const response = await fetch(
+//       'https://www.themealdb.com/api/json/v1/1/list.php?i=list'
+//     );
 
-    if (response.ok) {
-      const data = await response.json();
+//     if (response.ok) {
+//       const data = await response.json();
 
-      const tempData = data['meals'];
+//       const tempData = data['meals'];
 
-      try {
-        // console.log('hi', tempData);
+//       try {
+//         // console.log('hi', tempData);
 
-        const response = await fetch('/api/insertData', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(tempData),
-        });
+//         const response = await fetch('/api/insertData', {
+//           method: 'POST',
+//           headers: {
+//             'Content-Type': 'application/json',
+//           },
+//           body: JSON.stringify(tempData),
+//         });
 
-        if (response.ok) {
-          const data = await response.json();
-          console.log('Data inserted:', data);
-        } else {
-          console.error('Failed to insert data');
-        }
-      } catch (error) {
-        console.log('error');
-        console.error('Error inserting data:', error);
-      }
-    } else {
-      console.error('Failed to insert data');
-    }
-  } catch (error) {
-    console.error('Error inserting data:', error);
-  }
-}
+//         if (response.ok) {
+//           const data = await response.json();
+//           console.log('Data inserted:', data);
+//         } else {
+//           console.error('Failed to insert data');
+//         }
+//       } catch (error) {
+//         console.log('error');
+//         console.error('Error inserting data:', error);
+//       }
+//     } else {
+//       console.error('Failed to insert data');
+//     }
+//   } catch (error) {
+//     console.error('Error inserting data:', error);
+//   }
+// }
+
 const tempHolder = tempJson.map((item, index) => {
   return <NavCard key={`${item.title}+${index}`} data={item} />;
 });
@@ -93,11 +86,6 @@ export default function Home() {
       display='flex'
       flexWrap={'wrap'}
       flexDirection='column'
-      // alignContent={'center'}
-      // justifyContent={'center'}
-      // textAlign={'center'}
-      // gap={50}
-      // marginT={[100, 120]}
       marginTop={['8vh']}
     >
       <Box
@@ -127,7 +115,7 @@ export default function Home() {
       >
         <Box
           // bg={'yellow'}
-          w={['80%', '50%']}
+          w={['80%', '80%', '80%', '70%', '50%']}
           display={'flex'}
           flexWrap={'wrap'}
           gap={5}
