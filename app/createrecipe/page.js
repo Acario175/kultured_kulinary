@@ -17,7 +17,12 @@ export default function createRecipe() {
         <Heading size='4xl' align='center' m={2}>
           Welcome To Kreation
         </Heading>
-        <Text fontWeight={'bold'} my={10} align='center'>
+        <Text
+          // fontWeight={'bold'}
+          my={10}
+          align='center'
+          fontSize={['1.2rem', '2rem']}
+        >
           Below you will be able to pick you ingredients that once clicked will
           be added to the text box. The text box is where you will type out the
           directions as you see fit

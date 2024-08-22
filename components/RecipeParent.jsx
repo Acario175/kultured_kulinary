@@ -12,6 +12,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Stack,
 } from '@chakra-ui/react';
 import useSWR from 'swr';
 
@@ -30,8 +31,8 @@ function TextComp(props) {
         value={props.recipeText}
         onChange={(e) => props.setTextData(e.target.value)}
         size='lg'
-        w={'80vw'}
-        h={'30vh'}
+        w={['100%']}
+        h={['50vh', '40vh']}
       />
     </Box>
   );
@@ -67,7 +68,7 @@ function IngrdsDropdown(props) {
 
   let tempBox = (
     <Select
-      suppressHydrationWarning={true}
+      // suppressHydrationWarning={true}
       inputId='aria-example-input'
       instanceId={'sfgxcnh'}
       placeholder='Search options'
@@ -78,7 +79,7 @@ function IngrdsDropdown(props) {
   if (data) {
     tempBox = (
       <Select
-        suppressHydrationWarning={true}
+        // suppressHydrationWarning={true}
         inputId='aria-example-input'
         instanceId={'sdfgxcnh'}
         // options={filterOptions(inputValue)}
@@ -97,7 +98,11 @@ function IngrdsDropdown(props) {
     );
   }
 
-  return <Box w={['70vw', '20vw']}>{tempBox}</Box>;
+  return (
+    <Box fontSize={'2rem'} w={['70vw', '30vw']}>
+      {tempBox}
+    </Box>
+  );
 }
 
 // Parent Component
@@ -147,53 +152,86 @@ function RecipeParent() {
   //   };
 
   return (
-    <Box display={'flex'} flexDir={'column'} gap={5}>
+    <Box
+      display={'flex'}
+      flexDir={'column'}
+      // gap={5}
+      // bg={'brown'}
+      // size={['1.2rem', '2rem']}
+      sx={{
+        '& form': {
+          '& label': {
+            fontSize: '2rem', // Apply this to all FormLabels in this form
+          },
+          '& input': {
+            fontSize: '2rem', // Apply this to all Inputs in this form
+          },
+          '& Textarea': {
+            fontSize: '2rem', // Apply this to all Inputs in this form
+          },
+          '& select': {
+            fontSize: '2rem', // Apply this to all Inputs in this form
+          },
+        },
+      }}
+    >
       <form onSubmit={handleSubmit}>
-        <FormControl marginY={2}>
-          <FormLabel display='inline-block'>Title</FormLabel>
-          <Input
-            borderColor={'#232946'}
-            _focus={{ borderColor: '#004643' }}
-            _hover={{ borderColor: '#004643' }}
-            type='text'
-            name='title'
-            value={formData.title}
-            onChange={handleChange}
-            w={['80vw', '40vw']}
-          />
-        </FormControl>
-        <FormControl marginY={2}>
-          <FormLabel display='inline-block'>Description</FormLabel>
-          <Textarea
-            name='rec_description'
-            type='text'
-            value={formData.rec_description}
-            onChange={handleChange}
-            w={['80vw', '40vw']}
-          />
-        </FormControl>
-        <FormControl>
-          <FormLabel display='inline-block'>Ingredients:</FormLabel>
+        <Stack spacing={5}>
+          <FormControl
+          // marginY={2}
+          // fontSize={['1.2rem', '20rem']}
+          >
+            <FormLabel
+              // fontSize={['1.2rem', '2rem']}
+              display='inline-block'
+            >
+              Title
+            </FormLabel>
+            <Input
+              // fontSize={['1.2rem', '2rem']}
+              borderColor={'#232946'}
+              _focus={{ borderColor: '#004643' }}
+              _hover={{ borderColor: '#004643' }}
+              type='text'
+              name='title'
+              value={formData.title}
+              onChange={handleChange}
+              w={['80vw', '40vw']}
+            />
+          </FormControl>
+          <FormControl marginY={2}>
+            <FormLabel display='inline-block'>Description</FormLabel>
+            <Textarea
+              name='rec_description'
+              type='text'
+              value={formData.rec_description}
+              onChange={handleChange}
+              w={['80vw', '40vw']}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel display='inline-block'>Ingredients:</FormLabel>
 
-          <IngrdsDropdown
-            setTextData={setTextBoxValue}
-            recipeText={textBoxValue}
-            setFormData={setFormData}
-          />
-        </FormControl>
-        <FormControl>
-          <FormLabel>Instructions</FormLabel>
+            <IngrdsDropdown
+              setTextData={setTextBoxValue}
+              recipeText={textBoxValue}
+              setFormData={setFormData}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Instructions</FormLabel>
 
-          <TextComp
-            recipeText={textBoxValue}
-            setTextData={setTextBoxValue}
-            setFormData={setFormData}
-          />
-        </FormControl>
-        {/* <Button type='submit' isDisabled> */}
-        <Button name='rec_submit' type='submit'>
-          Submit Recipe
-        </Button>
+            <TextComp
+              recipeText={textBoxValue}
+              setTextData={setTextBoxValue}
+              setFormData={setFormData}
+            />
+          </FormControl>
+          {/* <Button type='submit' isDisabled> */}
+          <Button name='rec_submit' type='submit' mb={2}>
+            Submit Recipe
+          </Button>
+        </Stack>
       </form>
     </Box>
   );
